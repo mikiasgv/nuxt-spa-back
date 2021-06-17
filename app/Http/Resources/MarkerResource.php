@@ -25,4 +25,11 @@ class MarkerResource extends JsonResource
             "longitude" => $this->longitude,
         ];
     }
+
+    public function with($request)
+    {
+        return [
+            'status' => 'OK'
+        ];
+    }
 }

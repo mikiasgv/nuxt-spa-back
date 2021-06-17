@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\MarkerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function (Request $request) {
     return response()->json([]);
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::resource('markers', MarkerController::class);
+
+
+    // Route::delete('/token', [AuthController::class, 'destroy']);
 });

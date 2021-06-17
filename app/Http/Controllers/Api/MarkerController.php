@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MarkerRequest;
 use App\Http\Resources\MarkerResource;
+use App\Http\Resources\MarkerResourceCollection;
 use App\Models\Marker;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class MarkerController extends Controller
     {
         $markers = Marker::all();
 
-        return new MarkerResource($markers);
+        return new MarkerResourceCollection($markers);
     }
 
     /**
